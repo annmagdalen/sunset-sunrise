@@ -7,23 +7,36 @@ import { ApiService } from '../api/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  today = new Date;
+  day = this.today.getDate();
+  month = this.today.getMonth() + 1;
+  year = this.today.getFullYear();
+  dateToday = this.month + '/' + this.day + '/' + this.year;
+
   lat: number;
   lng: number;
-
+  date: string = this.dateToday;  
   data: any;
   errorMessage: any;
 
   constructor(private _apiService: ApiService) {}
 
   latChange(lat) {
-    this._apiService.getData(lat, this.lng)
+    this._apiService.getData(lat, this.lng, this.date)
     .subscribe(
       data => this.data = data,
       error => this.errorMessage = <any>error);
   }
 
   lngChange(lng) {
-    this._apiService.getData(this.lat, lng)
+    this._apiService.getData(this.lat, lng, this.date)
+    .subscribe(
+      data => this.data = data,
+      error => this.errorMessage = <any>error);
+  }
+
+  dateChange(date) {
+    this._apiService.getData(this.lat, this.lng, date)
     .subscribe(
       data => this.data = data,
       error => this.errorMessage = <any>error);
