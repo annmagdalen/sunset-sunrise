@@ -7,8 +7,8 @@ import { ApiService } from '../api/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @Input() lat: any;
-  @Input() lng: any;
+  @Input() lat: any = 47.3333;
+  @Input() lng: any = 13.3333;
 
   data: any;
   errorMessage: any;
@@ -16,7 +16,7 @@ export class AppComponent {
   constructor(private _apiService: ApiService) {}
 
   ngOnInit(): void {
-    this._apiService.getData()
+    this._apiService.getData(this.lat, this.lng)
     .subscribe(
       data => this.data = data,
       error => this.errorMessage = <any>error);
