@@ -9,10 +9,10 @@
 <h2>Longitude {{ lng }}</h2>
 <div>
   <label>Latitude
-    <input [(ngModel)]="lat" placeholder="add a latitude">
+    <input [(ngModel)]="lat" (input)="latChange(lat)" placeholder="add a latitude">
   </label>
   <label>Longitude
-    <input [(ngModel)]="lng" placeholder="add a longitude">
+    <input [(ngModel)]="lng" (input)="lngChange(lng)" placeholder="add a longitude">
   </label>
 </div>
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChange, Output } from '@angular/core';
 import { ApiService } from '../api/api.service';
 
 @Component({
@@ -7,16 +7,23 @@ import { ApiService } from '../api/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @Input() lat: any = 47.3333;
-  @Input() lng: any = 13.3333;
+  lat: number;
+  lng: number;
 
   data: any;
   errorMessage: any;
 
   constructor(private _apiService: ApiService) {}
 
-  ngOnInit(): void {
-    this._apiService.getData(this.lat, this.lng)
+  latChange(lat) {
+    this._apiService.getData(lat, this.lng)
+    .subscribe(
+      data => this.data = data,
+      error => this.errorMessage = <any>error);
+  }
+
+  lngChange(lng) {
+    this._apiService.getData(this.lat, lng)
     .subscribe(
       data => this.data = data,
       error => this.errorMessage = <any>error);
