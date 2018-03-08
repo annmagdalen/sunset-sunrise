@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ApiService } from '../api/api.service';
 
 @Component({
@@ -7,7 +7,8 @@ import { ApiService } from '../api/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  @Input() lat: any;
+  @Input() lng: any;
 
   data: any;
   errorMessage: any;
