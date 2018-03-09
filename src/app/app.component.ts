@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChange, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +10,32 @@ export class AppComponent {
   day = this.today.getDate();
   month = this.today.getMonth() + 1;
   year = this.today.getFullYear();
-  dateToday = this.month + '/' + this.day + '/' + this.year;
 
-  lat: number;
-  lng: number;
-  date: string = this.dateToday;
+  getDateToday(year, month, day) {
+    if(day < 10) {
+      day = '0'+ day;
+    } 
+  
+    if(month < 10) {
+      month = '0'+ month;
+    } 
+  
+    return year + '-' + month + '-' + day;
+  }
 
-  constructor() {
-    this.lat = 47.3333;
-    this.lng = 13.3333;
-    this.date = this.dateToday;
+  date: string = this.getDateToday(this.year, this.month, this.day);
+  loc: string;
+  value: string = '';
+
+  constructor() {}
+
+  onEnter(value: string) {
+    this.loc = value;
+  }
+
+  onClick(clickLoc: string, clickDate: string) {
+    console.log(this.date);
+    this.loc = clickLoc;
+    this.date = clickDate;
   }
 }

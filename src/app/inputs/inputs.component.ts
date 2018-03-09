@@ -1,5 +1,6 @@
 import { Component, OnChanges, Input, SimpleChanges } from '@angular/core';
-import { ApiService } from '../../api/api.service';
+import { LatLngService } from '../../api/lat-lng/lat-lng.service';
+import { LocationService } from '../../api/location/location.service';
 
 @Component({
   selector: 'app-inputs',
@@ -7,21 +8,22 @@ import { ApiService } from '../../api/api.service';
   styleUrls: ['./inputs.component.css']
 })
 export class InputsComponent implements OnChanges {
-  @Input() inputLat: number;
-  @Input() inputLng: number;
+  @Input() inputLoc: string;
   @Input() inputDate: string;
+  
   data: any;
+  locationData: any;
 
-  constructor(private _apiService: ApiService) {}
+  constructor(private _latLngService: LatLngService, private _locationService: LocationService) {}
 
   ngOnChanges(changes: SimpleChanges) { 
     for (let propName in changes) {
       if(changes[propName] || changes[propName].isFirstChange()) {
-        this._apiService.getData(this.inputLat, this.inputLng, this.inputDate)
+        this._locationService.getData(this.inputLoc)
+        .subscribe(locationData => this.locationData = locationData);
+        this._latLngService.getData(this.locationData.results[0].geometry.location.lat, this.locationData.results[0].geometry.location.lng, this.inputDate)
         .subscribe(data => this.data = data);
       }
-      let change = changes[propName];
-      console.dir(change);
     }
   }
 

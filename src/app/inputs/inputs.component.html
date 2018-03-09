@@ -2,6 +2,12 @@
   No valid numbers
 </h1>
 
+<h1>{{ inputLoc }}</h1>
+
 <h1 *ngIf="data">
   Sunrise <br> {{ data.results.sunrise }} <br> Sunset <br> {{ data.results.sunset }} <br> Length of day <br> {{ data.results.day_length }}
+</h1>
+
+<h1 *ngIf="locationData">
+  {{ locationData.results[0].geometry.location.lat }}
 </h1>

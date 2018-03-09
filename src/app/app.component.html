@@ -1,19 +1,16 @@
-<h2>Latitude {{ lat }}</h2>
-<h2>Longitude {{ lng }}</h2>
 <h2>Date {{ date }}</h2>
+<h2>Location {{ loc }}</h2>
 <div>
-  <label>Latitude
-    <input type="number" [(ngModel)]="lat" placeholder="add a latitude">
-  </label>
-  <label>Longitude
-    <input type="number" [(ngModel)]="lng" placeholder="add a longitude">
+  <label>Location
+    <input type="text" placeholder="add a city or adress" #box (keyup.enter)="onEnter(box.value)">
   </label>
   <label>Date
     <input type="date" [(ngModel)]="date">
   </label>
+  <button (click)="onClick(box.value, date)">Enter</button>
 </div>
 
-<app-inputs [inputLat]="lat" [inputLng]="lng" [inputDate]="date"></app-inputs>
+<app-inputs [inputDate]="date" [inputLoc]="loc"></app-inputs>
 
 
 

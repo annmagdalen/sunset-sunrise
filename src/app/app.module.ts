@@ -4,7 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ApiService } from '../api/api.service';
+import { LatLngService } from '../api/lat-lng/lat-lng.service';
+import { LocationService } from '../api/location/location.service';
 import { InputsComponent } from './inputs/inputs.component';
 
 @NgModule({
@@ -17,7 +18,10 @@ import { InputsComponent } from './inputs/inputs.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ApiService],
+  providers: [
+    LatLngService,
+    LocationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
