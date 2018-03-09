@@ -1,13 +1,20 @@
+<mat-icon>wb_sunny</mat-icon>
 <h2>Date {{ date }}</h2>
 <h2>Location {{ loc }}</h2>
 <div>
   <label>Location
-    <input type="text" placeholder="add a city or adress" #box (keyup.enter)="onEnter(box.value)">
+    <mat-form-field>
+        <input matInput type="text" placeholder="Add a city or adress" #box (keyup.enter)="onEnter(box.value)">
+    </mat-form-field>
   </label>
   <label>Date
-    <input type="date" [(ngModel)]="date">
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="date" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
   </label>
-  <button (click)="onClick(box.value, date)">Enter</button>
+  <button mat-raised-button color="primary" (click)="onClick(box.value, date)">Enter</button>
 </div>
 
 <app-inputs [inputDate]="date" [inputLoc]="loc"></app-inputs>

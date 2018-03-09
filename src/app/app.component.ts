@@ -23,7 +23,7 @@ export class AppComponent {
     return year + '-' + month + '-' + day;
   }
 
-  date: string = this.getDateToday(this.year, this.month, this.day);
+  date: string;
   loc: string;
   value: string = '';
 
