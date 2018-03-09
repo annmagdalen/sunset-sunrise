@@ -1,5 +1,6 @@
 <h2>Latitude {{ lat }}</h2>
 <h2>Longitude {{ lng }}</h2>
+<h2>Date {{ date }}</h2>
 <div>
   <label>Latitude
     <input type="number" [(ngModel)]="lat" placeholder="add a latitude">
@@ -7,12 +8,12 @@
   <label>Longitude
     <input type="number" [(ngModel)]="lng" placeholder="add a longitude">
   </label>
-  <!-- <label>Date
+  <label>Date
     <input type="date" [(ngModel)]="date">
-  </label> -->
+  </label>
 </div>
 
-<app-inputs [inputLat]="lat" [inputLng]="lng"></app-inputs>
+<app-inputs [inputLat]="lat" [inputLng]="lng" [inputDate]="date"></app-inputs>
 
 
 

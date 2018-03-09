@@ -1,5 +1,4 @@
 import { Component, Input, SimpleChange, Output } from '@angular/core';
-import { ApiService } from '../api/api.service';
 
 @Component({
   selector: 'app-root',
@@ -15,34 +14,11 @@ export class AppComponent {
 
   lat: number;
   lng: number;
-  date: string = this.dateToday;  
-  data: any;
-  errorMessage: any;
+  date: string = this.dateToday;
 
   constructor() {
     this.lat = 47.3333;
     this.lng = 13.3333;
-    this.date = '12/12/2012';
+    this.date = this.dateToday;
   }
-
-  // latChange(lat) {
-  //   this._apiService.getData(lat, this.lng, this.date)
-  //   .subscribe(
-  //     data => this.data = data,
-  //     error => this.errorMessage = <any>error);
-  // }
-
-  // lngChange(lng) {
-  //   this._apiService.getData(this.lat, lng, this.date)
-  //   .subscribe(
-  //     data => this.data = data,
-  //     error => this.errorMessage = <any>error);
-  // }
-
-  // dateChange(date) {
-  //   this._apiService.getData(this.lat, this.lng, date)
-  //   .subscribe(
-  //     data => this.data = data,
-  //     error => this.errorMessage = <any>error);
-  // }
 }

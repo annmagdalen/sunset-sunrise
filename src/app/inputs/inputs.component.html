@@ -1,10 +1,7 @@
-<h1>{{inputLat}}</h1>
-<h1>{{inputLng}}</h1>
-
 <h1 *ngIf="!data">
   No valid numbers
 </h1>
 
 <h1 *ngIf="data">
-  Welcome to {{ data.results.sunrise }}!
+  Sunrise <br> {{ data.results.sunrise }} <br> Sunset <br> {{ data.results.sunset }} <br> Length of day <br> {{ data.results.day_length }}
 </h1>
