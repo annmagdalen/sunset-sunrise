@@ -13,7 +13,7 @@ export class ApiService {
 
   constructor(private _http: HttpClient) {}
 
-  getData(lat: number, lng: number, date: string): Observable<any[]> {
+  getData(lat: number, lng: number, date: string = 'today'): Observable<any[]> {
     const _apiUrl = 'https://api.sunrise-sunset.org/json?lat=' + lat + '&lng=' + lng + '&date=' + date; 
     return this._http.get<any[]>(_apiUrl)
     .do(data => console.log(JSON.stringify(data)))

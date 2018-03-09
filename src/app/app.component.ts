@@ -19,26 +19,30 @@ export class AppComponent {
   data: any;
   errorMessage: any;
 
-  constructor(private _apiService: ApiService) {}
-
-  latChange(lat) {
-    this._apiService.getData(lat, this.lng, this.date)
-    .subscribe(
-      data => this.data = data,
-      error => this.errorMessage = <any>error);
+  constructor() {
+    this.lat = 47.3333;
+    this.lng = 13.3333;
+    this.date = '12/12/2012';
   }
 
-  lngChange(lng) {
-    this._apiService.getData(this.lat, lng, this.date)
-    .subscribe(
-      data => this.data = data,
-      error => this.errorMessage = <any>error);
-  }
+  // latChange(lat) {
+  //   this._apiService.getData(lat, this.lng, this.date)
+  //   .subscribe(
+  //     data => this.data = data,
+  //     error => this.errorMessage = <any>error);
+  // }
 
-  dateChange(date) {
-    this._apiService.getData(this.lat, this.lng, date)
-    .subscribe(
-      data => this.data = data,
-      error => this.errorMessage = <any>error);
-  }
+  // lngChange(lng) {
+  //   this._apiService.getData(this.lat, lng, this.date)
+  //   .subscribe(
+  //     data => this.data = data,
+  //     error => this.errorMessage = <any>error);
+  // }
+
+  // dateChange(date) {
+  //   this._apiService.getData(this.lat, this.lng, date)
+  //   .subscribe(
+  //     data => this.data = data,
+  //     error => this.errorMessage = <any>error);
+  // }
 }

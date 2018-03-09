@@ -1,0 +1,10 @@
+<h1>{{inputLat}}</h1>
+<h1>{{inputLng}}</h1>
+
+<h1 *ngIf="!data">
+  No valid numbers
+</h1>
+
+<h1 *ngIf="data">
+  Welcome to {{ data.results.sunrise }}!
+</h1>

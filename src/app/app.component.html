@@ -1,23 +1,18 @@
-<h1 *ngIf="!data">
-  No valid numbers
-</h1>
-
-<h1 *ngIf="data">
-  Welcome to {{ data.results.sunrise }}!
-</h1>
 <h2>Latitude {{ lat }}</h2>
 <h2>Longitude {{ lng }}</h2>
 <div>
   <label>Latitude
-    <input [(ngModel)]="lat" (input)="latChange(lat)" placeholder="add a latitude">
+    <input type="number" [(ngModel)]="lat" placeholder="add a latitude">
   </label>
   <label>Longitude
-    <input [(ngModel)]="lng" (input)="lngChange(lng)" placeholder="add a longitude">
+    <input type="number" [(ngModel)]="lng" placeholder="add a longitude">
   </label>
-  <label>Date
-    <input [(ngModel)]="date" (input)="dateChange(date)" value="2018-08-08" type="date">
-  </label>
+  <!-- <label>Date
+    <input type="date" [(ngModel)]="date">
+  </label> -->
 </div>
+
+<app-inputs [inputLat]="lat" [inputLng]="lng"></app-inputs>
 
 
 
