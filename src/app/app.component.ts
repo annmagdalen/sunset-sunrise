@@ -7,35 +7,33 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   today = new Date;
-  day = this.today.getDate();
-  month = this.today.getMonth() + 1;
-  year = this.today.getFullYear();
+  dayToday = this.today.getDate();
+  monthToday = this.today.getMonth() + 1;
 
-  getDateToday(year, month, day) {
-    if(day < 10) {
-      day = '0'+ day;
-    } 
-  
-    if(month < 10) {
-      month = '0'+ month;
-    } 
-  
-    return year + '-' + month + '-' + day;
-  }
-
-  date: string;
-  loc: string;
+  location: string;
   value: string = '';
+  monthSelected: number = this.monthToday;
+  daySelected: number = this.dayToday;
 
-  constructor() {}
+  months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
 
-  onEnter(value: string) {
-    this.loc = value;
+  days = Array.from(Array(31).keys(), x => x + 1);
+
+  onEnter(inputLocation: string) {
+    this.location = inputLocation;
   }
 
-  onClick(clickLoc: string, clickDate: string) {
-    console.log(this.date);
-    this.loc = clickLoc;
-    this.date = clickDate;
-  }
 }

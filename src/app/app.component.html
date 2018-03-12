@@ -1,23 +1,33 @@
-<mat-icon>wb_sunny</mat-icon>
-<h2>Date {{ date }}</h2>
-<h2>Location {{ loc }}</h2>
-<div>
-  <label>Location
+<div class="nav">
+  <mat-icon>wb_sunny</mat-icon>
+  <h1>Sunrise & Sunset</h1>
+</div>
+<div class="inputs">
+  <label>Location<br>
     <mat-form-field>
-        <input matInput type="text" placeholder="Add a city or adress" #box (keyup.enter)="onEnter(box.value)">
+        <input matInput type="text" placeholder="Add a city or adress" #loc (keyup.enter)="onEnter(loc.value)">
     </mat-form-field>
   </label>
-  <label>Date
+  <label>Month<br>
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" [(ngModel)]="date" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <mat-select placeholder="Choose a month" [(value)]="monthSelected">
+        <mat-option *ngFor="let month of months" [value]="months.indexOf(month) + 1">{{month}}</mat-option>
+      </mat-select>
     </mat-form-field>
   </label>
-  <button mat-raised-button color="primary" (click)="onClick(box.value, date)">Enter</button>
+  <label>Day<br>
+    <mat-form-field>
+      <mat-select placeholder="Choose a day" [(value)]="daySelected">
+        <mat-option *ngFor="let day of days" [value]="day">{{day}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </label>
+  <button mat-raised-button color="primary" (click)="onClick(loc.value)">Enter</button>
 </div>
 
-<app-inputs [inputDate]="date" [inputLoc]="loc"></app-inputs>
+<h2>Date {{ monthSelected }} {{ daySelected }}</h2>
+
+<app-inputs [location]="location" [month]="monthSelected" [day]="daySelected"></app-inputs>
 
 
 

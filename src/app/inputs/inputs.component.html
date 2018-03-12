@@ -1,10 +1,10 @@
-<h1 *ngIf="!data">
+<h1 *ngIf="!location">
   No valid numbers
 </h1>
 
 <h1>{{ inputLoc }}</h1>
 
-<h1 *ngIf="data">
+<h1 *ngIf="location && month && day">
   Sunrise <br> {{ data.results.sunrise }} <br> Sunset <br> {{ data.results.sunset }} <br> Length of day <br> {{ data.results.day_length }}
 </h1>
 

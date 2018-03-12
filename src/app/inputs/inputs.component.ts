@@ -8,20 +8,24 @@ import { LocationService } from '../../api/location/location.service';
   styleUrls: ['./inputs.component.css']
 })
 export class InputsComponent implements OnChanges {
-  @Input() inputLoc: string;
-  @Input() inputDate: string;
+  @Input() location: string;
+  @Input() month: string;
+  @Input() day: string;
   
   data: any;
   locationData: any;
 
-  constructor(private _latLngService: LatLngService, private _locationService: LocationService) {}
+  constructor(private _latLngService: LatLngService, private _locationService: LocationService) {
+    console.log(this.location, this.month, this.day);
+  }
 
   ngOnChanges(changes: SimpleChanges) { 
+    console.log('onChanges', this.location, this.month, this.day);    
     for (let propName in changes) {
       if(changes[propName] || changes[propName].isFirstChange()) {
-        this._locationService.getData(this.inputLoc)
+        this._locationService.getData(this.location)
         .subscribe(locationData => this.locationData = locationData);
-        this._latLngService.getData(this.locationData.results[0].geometry.location.lat, this.locationData.results[0].geometry.location.lng, this.inputDate)
+        this._latLngService.getData(this.locationData.results[0].geometry.location.lat, this.locationData.results[0].geometry.location.lng, this.month, this.day)
         .subscribe(data => this.data = data);
       }
     }
