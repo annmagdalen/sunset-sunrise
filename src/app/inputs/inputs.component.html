@@ -1,13 +1,19 @@
-<div *ngIf="location && month && day" class="datawrapper">
+<div *ngIf="location && month && day && data" class="datawrapper">
   <div class="databox">
     <h1>Sunrise</h1>
-    <h2>{{ displaySunriseClock ? "clock" : data.results.sunrise }}</h2>
-    <button mat-raised-button color="primary" (click)="toggleSunriseTime()">{{ displaySunriseClock ? "Change to digital time" : "Change to clock" }}</button>
+    <div [ngSwitch]="displaySunriseClock">
+      <app-clock *ngSwitchCase="true"></app-clock>
+      <h2 *ngSwitchCase="false">{{ data.results.sunrise }}</h2>
+    </div>
+    <button mat-raised-button color="primary" (click)="toggleSunriseTime()">{{ displaySunriseClock ? "Digital time" : "Clock" }}</button>
   </div>
   <div class="databox">
       <h1>Sunset</h1>
-      <h2>{{ displaySunsetClock ? "clock" : data.results.sunset }}</h2>
-      <button mat-raised-button color="primary" (click)="toggleSunsetTime()">{{ displaySunsetClock ? "Change to digital time" : "Change to clock" }}</button>      
+      <div [ngSwitch]="displaySunsetClock">
+        <app-clock *ngSwitchCase="true"></app-clock>
+        <h2 *ngSwitchCase="false">{{ data.results.sunset }}</h2>
+      </div>
+      <button mat-raised-button color="primary" (click)="toggleSunsetTime()">{{ displaySunsetClock ? "Digital time" : "Clock" }}</button>      
   </div>
   <div class="databox">
     <h1>Day length</h1>

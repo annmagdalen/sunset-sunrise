@@ -1,0 +1,45 @@
+.clock {
+    width: 3rem;
+    height: 3rem;
+    border:3px solid black;
+    border-radius:50%;
+    margin:1rem auto;
+    position: relative;
+    padding:1rem;
+    background: white;
+  }
+
+  .clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hour-hand {
+    width:50%;
+    height:3px;
+    background:black;
+    position: absolute;
+    top:50%;
+    transform-origin: 100%;
+  }
+
+  .min-hand {
+    width:70%;
+    height:2px;
+    background:black;
+    margin-left: -20%;
+    position: absolute;
+    top:50%;
+    transform-origin: 100%;
+  }
+
+  .middle {
+    width:10%;
+    height:10%;
+    border-radius:50%;
+    background:black;
+    position: absolute;
+    top:47%;
+    left:45%;
+  }
