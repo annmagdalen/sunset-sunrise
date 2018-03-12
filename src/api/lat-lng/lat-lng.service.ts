@@ -14,6 +14,7 @@ export class LatLngService {
   constructor(private _http: HttpClient) {}
 
   getData(lat: number, lng: number, month: string, day: string): Observable<any[]> {
+    console.log(lat, lng, month, day);
     const _apiUrl = 'https://api.sunrise-sunset.org/json?lat=' + lat + '&lng=' + lng + '&date=2018-' + month + '-' + day; 
     return this._http.get<any[]>(_apiUrl)
     .do(data => console.log(JSON.stringify(data)))

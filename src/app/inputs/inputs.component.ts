@@ -13,20 +13,19 @@ export class InputsComponent implements OnChanges {
   @Input() day: string;
   
   data: any;
-  locationData: any;
+  
+  constructor(private _latLngService: LatLngService, private _locationService: LocationService) {}
 
-  constructor(private _latLngService: LatLngService, private _locationService: LocationService) {
-    console.log(this.location, this.month, this.day);
+  getLatLngData(data) {
+    this._latLngService.getData(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng, this.month, this.day)
+    .subscribe(latLngData => this.data = latLngData);
   }
 
-  ngOnChanges(changes: SimpleChanges) { 
-    console.log('onChanges', this.location, this.month, this.day);    
+  ngOnChanges(changes: SimpleChanges) {   
     for (let propName in changes) {
-      if(changes[propName] || changes[propName].isFirstChange()) {
+      if(changes[propName] && !changes[propName].isFirstChange()) {      
         this._locationService.getData(this.location)
-        .subscribe(locationData => this.locationData = locationData);
-        this._latLngService.getData(this.locationData.results[0].geometry.location.lat, this.locationData.results[0].geometry.location.lng, this.month, this.day)
-        .subscribe(data => this.data = data);
+        .subscribe(locationData => this.getLatLngData(locationData))
       }
     }
   }
