@@ -1,33 +1,33 @@
 <div class="nav">
-  <mat-icon>wb_sunny</mat-icon>
-  <h1>Sunrise & Sunset</h1>
-</div>
-<div class="inputs">
-  <label>Location<br>
-    <mat-form-field>
-        <input matInput type="text" placeholder="Add a city or adress" #loc (keyup.enter)="onEnter(loc.value)">
-    </mat-form-field>
-  </label>
-  <label>Month<br>
-    <mat-form-field>
-      <mat-select placeholder="Choose a month" [(value)]="monthSelected">
-        <mat-option *ngFor="let month of months" [value]="months.indexOf(month) + 1">{{month}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </label>
-  <label>Day<br>
-    <mat-form-field>
-      <mat-select placeholder="Choose a day" [(value)]="daySelected">
-        <mat-option *ngFor="let day of days" [value]="day">{{day}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </label>
-  <button mat-raised-button color="primary" (click)="onClick(loc.value)">Enter</button>
+  <h1>Sunrise<br>Sunset</h1>
 </div>
 
-<h2>Date {{ monthSelected }} {{ daySelected }}</h2>
-
-<app-inputs [location]="location" [month]="monthSelected" [day]="daySelected"></app-inputs>
+<section class="page">
+  <div class="inputs">
+    <label>Location<br>
+      <mat-form-field>
+          <input matInput type="text" placeholder="Add a city or adress" #loc (keyup.enter)="onEnter(loc.value)">
+      </mat-form-field>
+    </label>
+    <label>Month<br>
+      <mat-form-field>
+        <mat-select placeholder="Choose a month" [(value)]="monthSelected">
+          <mat-option *ngFor="let month of months" [value]="months.indexOf(month) + 1">{{month}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </label>
+    <label>Day<br>
+      <mat-form-field>
+        <mat-select placeholder="Choose a day" [(value)]="daySelected">
+          <mat-option *ngFor="let day of days" [value]="day">{{day}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </label>
+    <button mat-raised-button color="primary" (click)="onEnter(loc.value)">Enter</button>
+  </div>
+    
+  <app-inputs [location]="location" [month]="monthSelected" [day]="daySelected"></app-inputs>
+</section>
 
 
 

@@ -1,13 +1,16 @@
-<h1 *ngIf="!location">
-  No valid numbers
-</h1>
-
-<h1>{{ inputLoc }}</h1>
-
-<h1 *ngIf="location && month && day">
-  Sunrise <br> {{ data.results.sunrise }} <br> Sunset <br> {{ data.results.sunset }} <br> Length of day <br> {{ data.results.day_length }}
-</h1>
-
-<h1 *ngIf="locationData">
-  {{ locationData.results[0].geometry.location.lat }}
-</h1>
+<div *ngIf="location && month && day" class="datawrapper">
+  <div class="databox">
+    <h1>Sunrise</h1>
+    <h2>{{ displaySunriseClock ? "clock" : data.results.sunrise }}</h2>
+    <button mat-raised-button color="primary" (click)="toggleSunriseTime()">{{ displaySunriseClock ? "Change to digital time" : "Change to clock" }}</button>
+  </div>
+  <div class="databox">
+      <h1>Sunset</h1>
+      <h2>{{ displaySunsetClock ? "clock" : data.results.sunset }}</h2>
+      <button mat-raised-button color="primary" (click)="toggleSunsetTime()">{{ displaySunsetClock ? "Change to digital time" : "Change to clock" }}</button>      
+  </div>
+  <div class="databox">
+    <h1>Day length</h1>
+    <h2>{{data.results.day_length}}</h2>
+  </div>
+</div>

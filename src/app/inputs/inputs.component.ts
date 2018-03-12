@@ -11,6 +11,8 @@ export class InputsComponent implements OnChanges {
   @Input() location: string;
   @Input() month: string;
   @Input() day: string;
+  displaySunriseClock: boolean = false;
+  displaySunsetClock: boolean = false;
   
   data: any;
   
@@ -30,5 +32,11 @@ export class InputsComponent implements OnChanges {
     }
   }
 
-  
+  toggleSunriseTime() {
+    this.displaySunriseClock = !this.displaySunriseClock;
+  }
+
+  toggleSunsetTime() {
+    this.displaySunsetClock = !this.displaySunsetClock;
+  }
 }
