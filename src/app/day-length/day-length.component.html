@@ -1,1 +1,6 @@
-<h2>{{hours}} hours<br>{{minutes}} minutes</h2>
+<div [ngSwitch]="displayDonut">
+  <app-donut *ngSwitchCase="true" [hours]="hours" [minutes]="minutes"></app-donut>
+  <h2 *ngSwitchCase="false">{{hours}} hours<br>{{minutes}} minutes</h2>
+</div>
+<button mat-raised-button color="primary" (click)="toggleDonut()">{{ displayDonut ? "Text" : "Back to Donut" }}</button>        
+

@@ -15,13 +15,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { ClockComponent } from './clock/clock.component';
 import { DayLengthComponent } from './day-length/day-length.component';
+import { DonutComponent } from './donut/donut.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputsComponent,
     ClockComponent,
-    DayLengthComponent
+    DayLengthComponent,
+    DonutComponent
   ],
   imports: [
     BrowserModule,

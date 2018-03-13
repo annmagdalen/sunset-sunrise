@@ -5,7 +5,7 @@
       <app-clock *ngSwitchCase="true" [date]="data.results.sunrise"></app-clock>
       <h2 *ngSwitchCase="false">{{ data.results.sunrise }}</h2>
     </div>
-    <button mat-raised-button color="primary" (click)="toggleClock()">{{ displayClock ? "Digital time" : "Clock" }}</button>
+    <button mat-raised-button color="accent" (click)="toggleClock()">{{ displayClock ? "Digital time" : "Clock" }}</button>
   </div>
   <div class="databox">
       <h1>Sunset</h1>
@@ -13,7 +13,7 @@
         <app-clock *ngSwitchCase="true" [date]="data.results.sunset"></app-clock>
         <h2 *ngSwitchCase="false">{{ data.results.sunset }}</h2>
       </div>
-      <button mat-raised-button color="primary" (click)="toggleClock()">{{ displayClock ? "Digital time" : "Clock" }}</button>      
+      <button mat-raised-button color="accent" (click)="toggleClock()">{{ displayClock ? "Digital time" : "Clock" }}</button>      
   </div>
   <div class="databox">
     <h1>Day length</h1>
