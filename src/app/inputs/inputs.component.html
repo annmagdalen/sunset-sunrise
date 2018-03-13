@@ -2,7 +2,7 @@
   <div class="databox">
     <h1>Sunrise</h1>
     <div [ngSwitch]="displaySunriseClock">
-      <app-clock *ngSwitchCase="true"></app-clock>
+      <app-clock *ngSwitchCase="true" [sunrise]="data.results.sunrise"></app-clock>
       <h2 *ngSwitchCase="false">{{ data.results.sunrise }}</h2>
     </div>
     <button mat-raised-button color="primary" (click)="toggleSunriseTime()">{{ displaySunriseClock ? "Digital time" : "Clock" }}</button>

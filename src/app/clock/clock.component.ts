@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
@@ -6,11 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./clock.component.css']
 })
 export class ClockComponent {
-  hour: number = 9;
-  min: number = 0;
-  minDegrees: number = ((this.min / 60) * 360) + 90;
-  hourDegrees = ((this.hour / 12) * 360) + ((this.min/60)*30) + 90;
-  minRotate = `rotate(${this.minDegrees}deg)`;
-  hourRotate = `rotate(${this.hourDegrees}deg)`;
+  private _sunrise: any;
+  minRotate: string;
+  hourRotate: string;
+  
+  get sunrise(): string {
+    return this._sunrise;
+  }
+  
+  @Input()
+  set sunrise(sunrise: string) {
+    this._sunrise = new Date(sunrise);
+    this.minRotate = `rotate(${((this._sunrise.getMinutes() / 60) * 360) + 90}deg)`;
+    this.hourRotate = `rotate(${((this._sunrise.getHours() / 12) * 360) + ((this._sunrise.getMinutes() / 60) * 30) + 90}deg)`;
+  }
 
 }
