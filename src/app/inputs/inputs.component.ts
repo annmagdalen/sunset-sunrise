@@ -11,11 +11,10 @@ export class InputsComponent implements OnChanges {
   @Input() location: string;
   @Input() month: string;
   @Input() day: string;
-  displaySunriseClock: boolean = true;
-  displaySunsetClock: boolean = true;
+  displayClock: boolean = true;
   
   data: any;
-  
+
   constructor(private _latLngService: LatLngService, private _locationService: LocationService) {}
 
   getLatLngData(data) {
@@ -32,11 +31,7 @@ export class InputsComponent implements OnChanges {
     }
   }
 
-  toggleSunriseTime() {
-    this.displaySunriseClock = !this.displaySunriseClock;
-  }
-
-  toggleSunsetTime() {
-    this.displaySunsetClock = !this.displaySunsetClock;
+  toggleClock() {
+    this.displayClock = !this.displayClock;    
   }
 }

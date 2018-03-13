@@ -6,19 +6,19 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./clock.component.css']
 })
 export class ClockComponent {
-  private _sunrise: any;
+  private _date: any;
   minRotate: string;
   hourRotate: string;
   
-  get sunrise(): string {
-    return this._sunrise;
+  get date(): string {
+    return this._date;
   }
   
   @Input()
-  set sunrise(sunrise: string) {
-    this._sunrise = new Date(sunrise);
-    this.minRotate = `rotate(${((this._sunrise.getMinutes() / 60) * 360) + 90}deg)`;
-    this.hourRotate = `rotate(${((this._sunrise.getHours() / 12) * 360) + ((this._sunrise.getMinutes() / 60) * 30) + 90}deg)`;
+  set date(date: string) {
+    this._date = new Date(date);
+    this.minRotate = `rotate(${((this._date.getMinutes() / 60) * 360) + 90}deg)`;
+    this.hourRotate = `rotate(${((this._date.getHours() / 12) * 360) + ((this._date.getMinutes() / 60) * 30) + 90}deg)`;
   }
 
 }
