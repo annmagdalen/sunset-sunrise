@@ -14,12 +14,14 @@ export class InputsComponent implements OnChanges {
   displayClock: boolean = true;
   
   data: any;
+  hours: number;
 
   constructor(private _latLngService: LatLngService, private _locationService: LocationService) {}
 
   getLatLngData(data) {
     this._latLngService.getData(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng, this.month, this.day)
     .subscribe(latLngData => this.data = latLngData);
+    this.hours = Math.floor(this.data.results.day_length / 3600);
   }
 
   ngOnChanges(changes: SimpleChanges) {   

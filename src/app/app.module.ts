@@ -14,12 +14,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { ClockComponent } from './clock/clock.component';
+import { DayLengthComponent } from './day-length/day-length.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputsComponent,
-    ClockComponent
+    ClockComponent,
+    DayLengthComponent
   ],
   imports: [
     BrowserModule,
