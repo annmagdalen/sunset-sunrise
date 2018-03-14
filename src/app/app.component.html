@@ -12,7 +12,7 @@
     <label>Month<br>
       <mat-form-field>
         <mat-select placeholder="Choose a month" [(value)]="monthSelected">
-          <mat-option *ngFor="let month of months" [value]="months.indexOf(month) + 1">{{month}}</mat-option>
+          <mat-option *ngFor="let month of months" [value]="months.indexOf(month)">{{month}}</mat-option>
         </mat-select>
       </mat-form-field>
     </label>
@@ -26,7 +26,7 @@
     <button mat-raised-button color="primary" (click)="onEnter(loc.value)">Enter</button>
   </div>
     
-  <app-inputs [location]="location" [month]="monthSelected" [day]="daySelected"></app-inputs>
+  <app-inputs *ngIf="location && month && day" [location]="location" [month]="monthSelected" [day]="daySelected"></app-inputs>
 </section>
 
 
