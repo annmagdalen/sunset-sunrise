@@ -4,15 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MaterialModule } from './material.module';
+
 import { AppComponent } from './app.component';
 import { LatLngService } from '../api/lat-lng/lat-lng.service';
 import { LocationService } from '../api/location/location.service';
 import { InputsComponent } from './inputs/inputs.component';
-
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
 import { ClockComponent } from './clock/clock.component';
 import { DayLengthComponent } from './day-length/day-length.component';
 import { DonutComponent } from './donut/donut.component';
@@ -30,10 +27,7 @@ import { DonutComponent } from './donut/donut.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MatIconModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule
+    MaterialModule
   ],
   providers: [
     LatLngService,
