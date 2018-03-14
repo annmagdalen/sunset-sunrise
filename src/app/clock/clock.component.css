@@ -4,7 +4,6 @@
     border:3px solid #455A64;
     border-radius:50%;
     margin:1rem auto;
-    position: relative;
     padding:1rem;
     background: white;
   }
@@ -20,7 +19,8 @@
     height:3px;
     background:#37474F;
     position: absolute;
-    top:50%;
+    /* 50% from top minus 1/2 height of hour hand */
+    top:calc(50% - 1.5px);
     transform-origin: 100%;
   }
 
@@ -30,7 +30,8 @@
     background:#37474F;
     margin-left: -20%;
     position: absolute;
-    top:50%;
+    /* 50% from top minus 1/2 height of min hand */    
+    top:calc(50% - 1px);
     transform-origin: 100%;
   }
 
@@ -40,6 +41,7 @@
     border-radius:50%;
     background:#37474F;
     position: absolute;
+    /* 50% from top and left minus 6% radius of element */
     top:44%;
     left:44%;
   }
