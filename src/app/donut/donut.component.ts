@@ -6,22 +6,31 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./donut.component.css']
 })
 export class DonutComponent {
-  private _hours: number;
-  @Input() minutes: number;
-  x: number;
-  y: number;
-  path: string;
+  private _dayLengthInSeconds: string;
+  attrPath: string;
 
-  get hours(): number {
-    return this._hours;
+  get dayLengthInSeconds(): string {
+    return this._dayLengthInSeconds;
   }
   
   @Input()
-  set hours(hours: number) {
-    this._hours = hours;
-    this.y = (43 + (Math.cos(hours / 180) * 86 * Math.sin(hours / 180)));
-    this.x = (Math.sin(hours / 180) * 86 * Math.sin(hours / 180));
-    this.path = `M43 0 A 43 43, 0, 0, 0, ${this.x} ${this.y} L 43 43 Z`;
+  set dayLengthInSeconds(dayLengthInSeconds: string) {
+    this._dayLengthInSeconds = dayLengthInSeconds;
+    let x = (43 + (Math.cos(this.toRadians(this.hoursToPercentage(dayLengthInSeconds)) * 1.8) * 86 * Math.sin(this.toRadians(this.hoursToPercentage(dayLengthInSeconds)) * 1.8)));
+    let y = (Math.sin(this.toRadians(this.hoursToPercentage(dayLengthInSeconds)) * 1.8) * 86 * Math.sin(this.toRadians(this.hoursToPercentage(dayLengthInSeconds)) * 1.8));
+    let z = 0;
+    if ((parseInt(dayLengthInSeconds, 10) > 21600 && parseInt(dayLengthInSeconds, 10) < 43200) || parseInt(dayLengthInSeconds, 10) > 64800) {
+      z = 1;
+    }
+    this.attrPath = `M43 0 A 43 43, 0, ${z}, 1, ${x} ${y} L 43 43 Z`;
+  }
+
+  hoursToPercentage(hours: string): number {   
+    return (parseInt(hours, 10) / 3600) / 0.12;
+  }
+
+  toRadians(angle: number): number {
+    return angle * (Math.PI / 180);
   }
 
 }
