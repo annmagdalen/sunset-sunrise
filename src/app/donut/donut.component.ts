@@ -9,6 +9,19 @@ export class DonutComponent {
   private _dayLengthInSeconds: string;
   attrPath: string;
 
+  private _sunrise: any;
+  hourRotate: string;
+  
+  get sunrise(): string {
+    return this._sunrise;
+  }
+  
+  @Input()
+  set sunrise(sunrise: string) {
+    this._sunrise = new Date(sunrise);
+    this.hourRotate = `rotate(${((this._sunrise.getHours() / 12) * 360) + ((this._sunrise.getMinutes() / 60) * 30)}deg)`;
+  }
+
   get dayLengthInSeconds(): string {
     return this._dayLengthInSeconds;
   }

@@ -1,5 +1,5 @@
 <div [ngSwitch]="displayDonut">
-  <app-donut *ngSwitchCase="true" [dayLengthInSeconds]="_dayLengthInSeconds"></app-donut>
+  <app-donut *ngSwitchCase="true" [dayLengthInSeconds]="_dayLengthInSeconds" [sunrise]="sunrise"></app-donut>
   <h2 *ngSwitchCase="false">{{hours}} hours<br>{{minutes}} minutes</h2>
 </div>
 <button mat-raised-button color="primary" (click)="toggleDonut()">{{ displayDonut ? "Text" : "Back to Donut" }}</button>        

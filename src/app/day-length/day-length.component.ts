@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./day-length.component.css']
 })
 export class DayLengthComponent {
+  @Input() sunrise: string;
   private _dayLengthInSeconds: string;
   hours: number;
   minutes: number;
