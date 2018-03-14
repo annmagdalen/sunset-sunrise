@@ -9,6 +9,7 @@ export class AppComponent implements DoCheck {
   today = new Date;
   dayToday = this.today.getDate();
   monthToday = this.today.getMonth();
+  displaySpinner: boolean;
 
   daysInMonth = [
     31,
@@ -51,7 +52,13 @@ export class AppComponent implements DoCheck {
   }
 
   onEnter(inputLocation: string) {
+    if (!this.location) {
+      this.displaySpinner = true;
+    }
     this.location = inputLocation;
+    setTimeout(()=>{
+      this.displaySpinner = false;    
+    }, 1500);
   }
 
 }

@@ -33,3 +33,8 @@
 .inputs button {
     height: 2.5rem;
 }
+
+.spinner {
+    display: flex;
+    justify-content: center;
+}

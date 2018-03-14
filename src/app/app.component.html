@@ -25,8 +25,11 @@
     </label>
     <button mat-raised-button color="primary" (click)="onEnter(loc.value)">Enter</button>
   </div>
-    
-  <app-inputs *ngIf="loc.value && monthSelected >= 0 && daySelected" [location]="location" [month]="monthSelected + 1" [day]="daySelected"></app-inputs>
+  
+  <div [style.display]="displaySpinner ? 'flex' : 'none'" class="spinner">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+  <app-inputs [style.display]="displaySpinner ? 'none' : 'block'" *ngIf="loc.value && monthSelected >= 0 && daySelected" [location]="location" [month]="monthSelected + 1" [day]="daySelected"></app-inputs>
 </section>
 
 
