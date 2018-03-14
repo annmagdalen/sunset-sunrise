@@ -26,7 +26,7 @@
     <button mat-raised-button color="primary" (click)="onEnter(loc.value)">Enter</button>
   </div>
     
-  <app-inputs *ngIf="location && month && day" [location]="location" [month]="monthSelected" [day]="daySelected"></app-inputs>
+  <app-inputs *ngIf="loc.value && monthSelected && daySelected" [location]="location" [month]="monthSelected + 1" [day]="daySelected"></app-inputs>
 </section>
 
 
